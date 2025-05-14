@@ -23,12 +23,17 @@ def add_author(request):
             author.name = author_form.cleaned_data['name']
             author.lastname = author_form.cleaned_data['lastname']
             author.patronymic = author_form.cleaned_data['patronymic']
-            # author.birthdate = author_form.cleaned_data['birthdate']
+            author.birthdate = author_form.cleaned_data['birthdate']
             author.save()
             return index(request)
 
 def show_all_authors(request):
-    pass
+    authors = Author.objects.all()
+    author_list = []
+    for author in authors:
+        author_list.append(author)
+    context = {'authors': authors, "author_list": author_list}
+    return render(request, template_name='library/index.html', context=context)
 
 def add_book(request):
     if request.method == "GET":
@@ -43,9 +48,14 @@ def add_book(request):
             book.author = book_form.cleaned_data['author']
             book.title = book_form.cleaned_data['title']
             book.genre = book_form.cleaned_data['genre']
-            # book.written_in = book_form.cleaned_data['written_in']
+            book.written_in = book_form.cleaned_data['written_in']
             book.save()
             return index(request)
 
 def show_all_books(request):
-    pass
+    books = Book.objects.all()
+    book_list = []
+    for book in books:
+        book_list.append(book)
+    context = {'books': books, "book_list": book_list}
+    return render(request, template_name='library/index.html', context=context)
