@@ -5,9 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-<h3>gggg</h3>
+
+<ul style="display: flex; flex-direction: row; list-style: none; margin-bottom: 70px;">
+    <li style="padding: 0px 20px 0px 20px" ><a href="{% url 'index' %}">Главная страница</a></li>
+    <li style="padding: 0px 20px 0px 20px" ><a href="{% url 'add_author' %}">Добавить автора</a></li>
+    <li style="padding: 0px 20px 0px 20px" ><a href="{% url 'add_book' %}">Добавить книгу</a></li>
+    <li style="padding: 0px 20px 0px 20px" ><a href="{% url 'author_list' %}">Вывести список авторов</a></li>
+    <li style="padding: 0px 20px 0px 20px" ><a href="{% url 'book_list' %}">Вывести список книг</a></li>
+</ul>
 
 {% block content %}
 {% endblock content %}
+
 </body>
 </html>
