@@ -2,6 +2,11 @@
 
 {% block content %}
 
-<h3>{{ author_list }}</h3>
+{% for author in authors %}
+    <div>{{ author.name }}</div>
+    <div>{{ author.lastname }}</div>
+    <div>{{ author.patronymic }}</div>
+    <div>{{ author.birthdate }}</div>
+{% endfor %}
 
 {% endblock content %}

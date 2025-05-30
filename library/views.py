@@ -29,11 +29,8 @@ def add_author(request):
 
 def show_all_authors(request):
     authors = Author.objects.all()
-    author_list = []
-    for author in authors:
-        author_list.append(author)
-    context = {'authors': authors, "author_list": author_list}
-    return render(request, template_name='library/index.html', context=context)
+    context = {'authors': authors}
+    return render(request, template_name='library/author_list.html', context=context)
 
 def add_book(request):
     if request.method == "GET":
@@ -54,8 +51,5 @@ def add_book(request):
 
 def show_all_books(request):
     books = Book.objects.all()
-    book_list = []
-    for book in books:
-        book_list.append(book)
-    context = {'books': books, "book_list": book_list}
-    return render(request, template_name='library/index.html', context=context)
+    context = {'books': books}
+    return render(request, template_name='library/book_list.html', context=context)

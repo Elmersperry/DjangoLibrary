@@ -2,6 +2,11 @@
 
 {% block content %}
 
-<h3>{{ book_list }}</h3>
+{% for book in books %}
+    <div>{{ book.author }}</div>
+    <div>{{ book.title }}</div>
+    <div>{{ book.genre }}</div>
+    <div>{{ book.written_in }}</div>
+{% endfor %}
 
 {% endblock content %}
